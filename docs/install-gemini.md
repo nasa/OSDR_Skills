@@ -82,7 +82,8 @@ In a fresh chat / session:
 | *Which Rodent Research datasets used only female mice?* | ~89 datasets: two queries (RR datasets, then those with any male samples) and a set difference, or one per-dataset sex breakdown |
 | *Show me the temperature and CO₂ readings on ISS during RR-1.* | No biodata query; a redirect to the OSDR Environmental Data Application (EDA) |
 
-> *Expected results are based on data pulled on November 16, 2026. The OSDR BioData API pulls from the live repository, so these expected results may be different. 
+> *Expected results are based on data pulled on November 16, 2026. The OSDR BioData API pulls from the live repository, so these expected results may be different.
+>  
 > Note: Gemini may show incomplete results. If you do not see the API call shown, ask the client to provide the exact API call needed so you can double check all results.
 
 **GeneLab Knowledge Graph (optional).** If the `mcp-genelab` MCP server is
