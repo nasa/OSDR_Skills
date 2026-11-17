@@ -130,9 +130,16 @@ The `mcp-genelab` MCP server exposes the GeneLab Knowledge Graph (Neo4j):
 `MGene` / `MethylationRegion` / `Organism` edges carrying log2FC, adjusted
 p / q, group means and SDs; `Mission` nodes are launch vehicles (SpaceX-4),
 not Project Identifiers. The KG served by the
-MCP server is spoke-genelab v0.3.1, built 11 March 2026 (tag
-`v0.3.1+20260311` in BaranziniLab/spoke_genelab): 212 studies, ~13 100
-contrast assays, RNA-seq / microarray / WGBS / 16S / ITS only.
+MCP server is spoke-genelab v0.3.1+20261112 (schema v0.3.1, rebuilt from
+OSDR on 12 November 2026; change log in BaranziniLab/spoke_genelab): 222
+studies, ~13 600 contrast assays, RNA-seq / microarray / WGBS / 16S / ITS
+only. Relative to the March 2026 build, 16 RNA-seq studies were added
+(including the first microbial RNA-seq studies, *B. subtilis* OSD-138 and
+OSD-185), 6 withdrawn studies were removed (the only zebrafish study among
+them), 39 studies were reprocessed with the current GeneLab pipeline, and
+methylation and amplicon content is unchanged. Assay identifiers embed a
+metadata hash and can change between builds, so the skill resolves them with
+`select_assays` at run time instead of hard-coding them.
 
 The skill therefore routes by *question type*, not by a global switch:
 known-accession questions inside KG coverage → KG; anything else → API; a

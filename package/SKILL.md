@@ -67,7 +67,7 @@ study metadata and groups (`mcp-genelab:get_study_info`,
 lists the groups, `select_assays(study_id, selection="i,j")` gives the assay
 id for group i vs group j.
 
-KG coverage: ~212 studies; only *differential results* of RNA-seq,
+KG coverage: ~222 studies; only *differential results* of RNA-seq,
 microarray, WGBS and 16S/ITS assays plus study/mission metadata. **Not** in
 the KG: sample-level metadata and counts per group, file names / download
 URLs, raw or normalized count tables, proteomics, imaging and all other assay

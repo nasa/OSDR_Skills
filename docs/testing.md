@@ -38,6 +38,11 @@ KG call.
 **(b) `mcp-genelab` not connected.** No KG tool is called and the knowledge
 graph is never mentioned; all answers carry API `Source` lines (case 25).
 
+The KG figures above (OSD-515: 2,511 up / 1,043 down; OSD-48 groups; OSD-248
+30 contrasts; OSD-145 absent) were re-checked against spoke-genelab
+v0.3.1+20261112 on 16 November 2026 and are unchanged from the March 2026
+build.
+
 ## Full protocol (about 20 minutes per client)
 
 For each case in `evals.json`, in a fresh chat, paste the `prompt` and check:

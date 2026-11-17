@@ -52,7 +52,7 @@ and the assistant will:
   NBISC, microbial isolates → SMCC) without running a biodata query.
 - **use the GeneLab Knowledge Graph first** when the `mcp-genelab` MCP server
   is connected: study metadata, groups and differential expression /
-  methylation / abundance results for the ~212 studies in the KG come from
+  methylation / abundance results for the ~222 studies in the KG come from
   its tools; anything the KG does not hold (studies or assays outside it,
   sample-level metadata, files, counts tables, discovery across OSDR) is
   fetched from the API, and every answer states which parts came from the KG
@@ -88,7 +88,7 @@ and the assistant will:
   varies with the model; the `docs/evals.json` cases are the acceptance test
   for any client.
 - **Knowledge-graph coverage.** The KG holds RNA-seq, microarray, WGBS and
-  16S/ITS *differential results* and study metadata for ~212 studies, keyed by
+  16S/ITS *differential results* and study metadata for ~222 studies, keyed by
   gene symbol (no ENSEMBL ids, Wald statistics or unannotated genes). The skill
   says when a KG count differs from the GeneLab file for that reason and offers
   the API file.

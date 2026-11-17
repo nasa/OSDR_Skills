@@ -76,6 +76,8 @@ First public release.
   server the skill is API-only and does not mention the KG.
 - Every answer labels its parts: `Source: GeneLab KG via mcp-genelab —
   <tool>(<args>)` or `Source: OSDR BioData API — <URL>`.
+- Coverage figures and KG examples verified against spoke-genelab
+  v0.3.1+20261112 (KG rebuilt from OSDR on 12 November 2026; 222 studies).
 
 **Compatibility**
 

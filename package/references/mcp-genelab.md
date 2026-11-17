@@ -23,19 +23,22 @@ Contents: 1 Tools · 2 Coverage and the KG-vs-API split · 3 Workflows ·
 
 ## 2. Coverage and the KG-vs-API split
 
-KG = spoke-genelab v0.3.1 (built 11 March 2026): 212 studies, ~13 100
-contrast-level assays; technologies
+KG = spoke-genelab v0.3.1+20261112 (schema v0.3.1, rebuilt from OSDR on
+12 November 2026): 222 studies, ~13 600 contrast-level assays; technologies
 RNA Sequencing (RNA-Seq), DNA microarray, Whole Genome Bisulfite Sequencing,
-16S, ITS; organisms incl. mouse, rat, human, Arabidopsis, Drosophila,
-C. elegans, zebrafish, yeast, "Microbiota". `Mission` nodes are launch
+16S, ITS; organisms: mouse, human, Arabidopsis, Drosophila, rat, C. elegans,
+*Bacillus subtilis*, yeast, "Microbiota". `Mission` nodes are launch
 vehicles (SpaceX-4 …), **not** Project Identifiers (RR-1, Inspiration4).
+The KG is rebuilt periodically: studies can be added, removed (when OSDR
+withdraws them) or reprocessed, so always confirm a study with
+`get_study_info` rather than assuming from an earlier answer.
 
 | Question | Source |
 |---|---|
 | What is OSD-### about; its groups / comparisons; which omics it has (of the KG types) | **KG** |
 | DE genes / DMRs / DA organisms for a contrast in a KG study | **KG** |
 | Overlap of DE/DM/DA results across contrasts or studies in the KG | **KG** |
-| Study not in KG (e.g. OSD-145, OSD-95 microbial RNA-seq; OSD-572 metagenomics) | **API** (§6 of SKILL.md) |
+| Study not in KG (e.g. OSD-145 *S. aureus* and OSD-95 RNA-seq; OSD-572 metagenomics — but some microbial RNA-seq *is* in the KG, e.g. *B. subtilis* OSD-138/185) | **API** (§6 of SKILL.md) |
 | Sample-level metadata: n per group, sex, strain, age, source names, subjects across studies | **API** `/samples/` |
 | File names, download URLs, count / normalized tables, GeneLab-processed inventory | **API** |
 | Proteomics, imaging, micro-CT, behaviour, methylation *counts*, any non-KG assay | **API** |
@@ -97,3 +100,6 @@ known, use `get_study_info` to enrich those that are in the KG.
   (`Space Flight,Carcass`); the API file uses `(Space Flight & Carcass)v(Ground
   Control & Carcass)`. Same groups, different spelling.
 - KG has no `rRNArm` variants and no legacy (pre-GeneLab-pipeline) results.
+- Assay identifiers (`OSD-###-<md5>`) embed a hash of the assay metadata and
+  change when a study is reprocessed between KG builds — resolve them with
+  `select_assays` in the current session; never reuse an id from older notes.
