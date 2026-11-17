@@ -35,7 +35,7 @@ The two share one interface; the steps are identical.
    | `osdr.nasa.gov` | file downloads (`file.remote_url` links) |
    | `nasa-osdr.s3.amazonaws.com` | the public OSDR S3 bucket — dataset version lookup (`version-N` folders) and bulk file access |
 
-3. Go to **Plugins →Find more plugin***  (<https://claude.a/iplugins>).
+3. Go to **Plugins →Find more plugin***  (<https://claude.ai/plugins>).
 4. Click **+ Add**, then **Upload plugin**.
 5. Select (or drag and drop) `osdr-biodata-api.zip`. Claude unpacks it and lists
    *osdr-biodata-api* with the description from `SKILL.md`.
