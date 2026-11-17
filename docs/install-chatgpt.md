@@ -19,16 +19,15 @@ Official documentation (check it for the latest steps):
 
 Same interface in both.
 
-1. Unzip `osdr-biodata-api.zip` so you have the `osdr-biodata-api` folder.
-2. In the sidebar open **Skills** (on some workspaces it is under
-   **Plugins → Skills** tab).
-3. Click **Add → Upload from your computer** and select (or drag and drop) the
-   `osdr-biodata-api` folder (`SKILL.md` must be at the top level of what you
-   upload; the zip itself is accepted where the uploader allows archives).
-4. ChatGPT scans the upload. When it no longer shows **Needs review** or
+1. In the sidebar open **Plugins → Skills** tab.
+2. Click **Add → Upload from your computer** and select (or drag and drop) the
+   `osdr-biodata-api.zip` file (if the zip file is not accepted, unzip `osdr-biodata-api.zip` 
+   and upload the `osdr-biodata-api` folder; `SKILL.md` must be at the top level of what you
+   upload).
+3. ChatGPT scans the upload. When it no longer shows **Needs review** or
    **Blocked** it is ready; if it is blocked on a workspace plan, ask your
    admin.
-5. In a new chat type **@** and pick **osdr-biodata-api**, or just ask an
+4. In a new chat type **@** and pick **osdr-biodata-api**, or just ask an
    OSDR question — the skill loads automatically when the question matches
    its description. ChatGPT fetches the API URLs with its browsing tool, so
    browsing must be enabled.
@@ -55,7 +54,7 @@ Codex loads skills from folders on your machine; no upload is needed.
    asked. If calls fail, turn on network access for the thread/workspace
    (Codex's sandbox has network off by default); the hosts the skill needs
    are `visualization.osdr.nasa.gov`, `osdr.nasa.gov` and
-`nasa-osdr.s3-website-us-west-2.amazonaws.com`.
+`nasa-osdr.s3.amazonaws.com`.
 
 The folder name **must stay `osdr-biodata-api`** (it must match the `name`
 field in `SKILL.md`).
@@ -66,11 +65,13 @@ field in `SKILL.md`).
 
 In a fresh chat or thread:
 
-| Ask | Expect |
+| Ask | *Expect |
 |---|---|
 | *List all Drosophila datasets in OSDR with their titles.* | 17 datasets from a `/datasets/` URL with `organism=/drosophila/` |
 | *Which Inspiration4 datasets contain GeneLab-processed data files?* | OSD-572, OSD-573, OSD-574, OSD-630 (metagenomics) |
 | *List all human astronaut datasets in OSDR.* | No biodata query; a redirect to NLSP / LSDA / LSAH |
+
+> *Expected results are based on data pulled on November 16, 2026. The OSDR BioData API pulls from the live repository, so these expected results may be different.
 
 **GeneLab Knowledge Graph (optional).** If the `mcp-genelab` MCP server is
 connected in this client, the skill uses it first for known-study questions

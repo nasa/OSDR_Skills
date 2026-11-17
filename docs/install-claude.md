@@ -33,10 +33,10 @@ The two share one interface; the steps are identical.
    |---|---|
    | `visualization.osdr.nasa.gov` | every BioData API call |
    | `osdr.nasa.gov` | file downloads (`file.remote_url` links) |
-   | `nasa-osdr.s3-website-us-west-2.amazonaws.com` | the public OSDR S3 bucket (dataset version folders, bulk file access) |
+   | `nasa-osdr.s3.amazonaws.com` | the public OSDR S3 bucket — dataset version lookup (`version-N` folders) and bulk file access |
 
-3. Go to **Customize → Skills** (<https://claude.ai/customize/skills>).
-4. Click **+ Add**, then **Upload skill**.
+3. Go to **Plugins →Find more plugin***  (<https://claude.aiplugins>).
+4. Click **+ Add**, then **Upload plugin**.
 5. Select (or drag and drop) `osdr-biodata-api.zip`. Claude unpacks it and lists
    *osdr-biodata-api* with the description from `SKILL.md`.
 6. Make sure the skill's toggle is **on**.
@@ -61,7 +61,7 @@ nothing extra to install. Cowork can run `scripts/osdr_query.py`, so some
 answers come from the script rather than raw `curl`; the URLs are the same.
 If a task's network access is restricted to an allow-list, add the same three
 hosts as in section 1 step 2 (`visualization.osdr.nasa.gov`, `osdr.nasa.gov`,
-`nasa-osdr.s3-website-us-west-2.amazonaws.com`) to the task's allowed
+`nasa-osdr.s3.amazonaws.com`) to the task's allowed
 websites.
 
 ---
@@ -97,11 +97,13 @@ folder names.)
 
 In a fresh chat:
 
-| Ask | Expect |
+| Ask | *Expect |
 |---|---|
 | *List all Drosophila datasets in OSDR with their titles.* | 17 datasets, a `/datasets/` URL containing `organism=/drosophila/` |
 | *Show me the differentially expressed genes for OSD-515, space flight vs ground control.* | ~3,947 significant genes, top-10 up/down tables with log2FC, adj p, Wald stat and group mean/SD, an offer of a CSV |
 | *Show me the temperature and CO₂ readings on ISS during RR-1.* | No biodata query; a short redirect to the OSDR Environmental Data Application (EDA) |
+
+> *Expected results are based on data pulled on November 16, 2026. The OSDR BioData API pulls from the live repository, so these expected results may be different.
 
 **GeneLab Knowledge Graph (optional).** If the `mcp-genelab` MCP server is
 connected in this client, the skill uses it first for known-study questions

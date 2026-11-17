@@ -67,7 +67,7 @@ and the assistant will:
   not query them.
 - **Network.** The assistant's environment must be able to reach
   `visualization.osdr.nasa.gov` (API calls), `osdr.nasa.gov` (file
-  downloads) and `nasa-osdr.s3-website-us-west-2.amazonaws.com` (the public
+  downloads) and `nasa-osdr.s3.amazonaws.com` (the public
   S3 bucket). Sandboxed clients may need these hosts allow-listed — see the
   installation guides.
 - **Plans.** Claude: paid plan required (not available on Free). ChatGPT:

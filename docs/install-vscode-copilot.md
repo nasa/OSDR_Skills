@@ -6,7 +6,7 @@ Download [`osdr-biodata-api.zip`](../osdr-biodata-api.zip) first.
 
 Official documentation (check it for the latest steps):
 [Use Agent Skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills) ·
-[Adding agent skills for GitHub Copilot (cloud agent)](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-skills) ·
+[Adding agent skills for GitHub Copilot (cloud agent)](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) ·
 [Adding agent skills for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills) ·
 [Customizing or disabling the firewall](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall).
 
@@ -56,7 +56,7 @@ The cloud agent only sees skills that live **inside the repository**.
 2. Allow the API host through the agent's firewall: repository **Settings →
    Copilot → Internet access → Copilot in the cloud → Custom allowlist**, add
    `visualization.osdr.nasa.gov`, `osdr.nasa.gov` and
-   `nasa-osdr.s3-website-us-west-2.amazonaws.com`, **Add rule → Save
+   `nasa-osdr.s3.amazonaws.com`, **Add rule → Save
    changes**. (Repository rules require the organization setting *Allow
    repository custom rules*; org owners can instead add them under the
    organization's **Settings → Copilot → Internet access**.)
@@ -81,11 +81,13 @@ field in `SKILL.md`.
 
 In a fresh Agent-mode chat:
 
-| Ask | Expect |
+| Ask | *Expect |
 |---|---|
 | *List all Drosophila datasets in OSDR with their titles.* | 17 datasets from a `/datasets/` URL with `organism=/drosophila/` |
 | *Which OSDR datasets come from the RR-1 mission, and what assays and tissues do they include?* | 25 datasets (80 dataset × assay × tissue rows), including the `RR-1_BSP` alias |
 | *I need physical tissue samples from the RR-9 mice — how do I get them from OSDR?* | No biodata query; a redirect to NBISC (NASA Biological Institutional Scientific Collection) |
+
+> *Expected results are based on data pulled on November 16, 2026. The OSDR BioData API pulls from the live repository, so these expected results may be different.
 
 **GeneLab Knowledge Graph (optional).** If the `mcp-genelab` MCP server is
 connected in this client, the skill uses it first for known-study questions

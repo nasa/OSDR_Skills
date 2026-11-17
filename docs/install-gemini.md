@@ -29,7 +29,7 @@ Same interface in both.
    click **Skills**.
 2. Click **Create → Upload** and select (or drag and drop) **`osdr-biodata-api-flat.zip`**
    (Google requires `SKILL.md` in the root of the upload; total size limit
-   100 MB). Click **Open**, then **Upload**.
+   100 MB).
 3. Review the name and description Gemini reads from `SKILL.md` and click
    **Create**.
 4. The skill is active by default. In a chat type **/** (or **@** with the
@@ -63,7 +63,7 @@ files).
    denied network access, approve the *Sandbox Expansion Request* or use a
    profile that allows network; the hosts the skill needs are
    `visualization.osdr.nasa.gov`, `osdr.nasa.gov` and
-`nasa-osdr.s3-website-us-west-2.amazonaws.com`.
+`nasa-osdr.s3.amazonaws.com`.
 
 The folder name **must stay `osdr-biodata-api`** (it must match the `name`
 field in `SKILL.md`). Note: Google's docs state that for unpaid-tier and
@@ -76,11 +76,13 @@ the same skill folders apply there.
 
 In a fresh chat / session:
 
-| Ask | Expect |
+| Ask | *Expect |
 |---|---|
 | *List all Drosophila datasets in OSDR with their titles.* | 17 datasets from a `/datasets/` URL with `organism=/drosophila/` |
 | *Which Rodent Research datasets used only female mice?* | ~89 datasets: two queries (RR datasets, then those with any male samples) and a set difference, or one per-dataset sex breakdown |
 | *Show me the temperature and CO₂ readings on ISS during RR-1.* | No biodata query; a redirect to the OSDR Environmental Data Application (EDA) |
+
+> *Expected results are based on data pulled on November 16, 2026. The OSDR BioData API pulls from the live repository, so these expected results may be different.
 
 **GeneLab Knowledge Graph (optional).** If the `mcp-genelab` MCP server is
 connected in this client, the skill uses it first for known-study questions

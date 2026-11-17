@@ -6,7 +6,7 @@ agent's sandbox may make outbound HTTPS requests to these hosts:
 ```
 visualization.osdr.nasa.gov                   # the API (all query / metadata / data calls)
 osdr.nasa.gov                                 # file downloads (file.remote_url targets)
-nasa-osdr.s3-website-us-west-2.amazonaws.com  # public S3 bucket (bulk data, version-N folders)
+nasa-osdr.s3.amazonaws.com    # public S3 bucket: dataset version-N folders, bulk data
 ```
 
 `visualization.osdr.nasa.gov` alone covers every query in SKILL.md.
@@ -29,11 +29,13 @@ to the user with the one setup step below, or ask them to paste the response.
 
 ## Per-client notes
 
-**Claude (claude.ai chat, Cowork, Claude Code)** — claude.ai chat uses its web
-fetch tool; nothing to configure. Cowork / Claude Code sandboxes: enable
-network egress and add the hosts to the allowed-domains list ("Allow network
-egress" → "Additional allowed domains"; enter full hostnames). For Team /
-Enterprise an admin may need to allow it under Admin settings → Capabilities.
+**Claude (claude.ai chat, Cowork, Claude Code)** — the sandbox reaches only
+allow-listed hosts: in **Settings → Capabilities** turn on **Create and edit
+files** and **Use the internet while making files**, then add the three hosts
+above under **Allowed websites** (Team / Enterprise: an owner does this in
+Organization settings → Capabilities, or allows all domains). The Free plan
+cannot add hosts, so the skill cannot run there. Cowork tasks with a
+restricted allow-list need the same three hosts.
 
 **ChatGPT / Codex** — ChatGPT with browsing can fetch the URLs directly. Codex
 CLI / IDE sandboxes have network off by default: run with network enabled (e.g.
